@@ -1,0 +1,38 @@
+.conversion-section {
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .conversion-section h4 {
+    margin-top: 50;
+  }
+  
+  .conversion-inputs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 100px;
+  }
+  
+  .conversion-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .conversion-results {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .conversion-results TextField {
+    flex: 1 1 calc(50% - 5px);
+  }
+  
+  .conversion-section h5 {
+    margin-top: 220px;
+    font-size: 18px;
+  }
+  
