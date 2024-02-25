@@ -1,38 +1,46 @@
-.conversion-section {
-    background-color: #f0f0f0;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-  
-  .conversion-section h4 {
-    margin-top: 50;
-  }
-  
-  .conversion-inputs {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 100px;
-  }
-  
-  .conversion-buttons {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .conversion-results {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  
-  .conversion-results TextField {
-    flex: 1 1 calc(50% - 5px);
-  }
-  
-  .conversion-section h5 {
-    margin-top: 220px;
-    font-size: 18px;
-  }
+.card {
+  align-items: center;
+  border-radius: 30px;
+  background: #0e0e0e;
+  box-shadow: 2px 15px 20px rgb(25, 25, 25);
+ }
+
+.input-group {
+  display: flex;
+  align-items: center
+}
+
+.input {
+  min-height: 50px;
+  max-width: 150px;
+  padding: 0 1rem;
+  color: #fff;
+  font-size: 15px;
+  border: 1px solid #4d78cd;
+  border-radius: 25px 0 0 25px;
+  background-color: transparent;
+  transition: border-color .3s ease-in-out;
+}
+
+.button--submit {
+  min-height: 50px;
+  padding: .5em 1em;
+  border: none;
+  border-radius: 0 25px 25px 0;
+  background-color: #4d65cd;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color .3s ease-in-out;
+}
+
+.button--submit:hover {
+  background-color: #5e5dcd;
+}
+
+.input:focus, .input:focus-visible {
+  border-color: #ae89d89b;
+  outline: none;
+}
+
   
