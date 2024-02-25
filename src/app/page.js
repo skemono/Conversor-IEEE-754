@@ -22,11 +22,10 @@ export default function Home() {
       let exponent = 0;
       let mantissa = "";
     
-      // Convertir parte entera a binario
       const integerPart = Math.floor(num);
       let binaryInteger = integerPart.toString(2);
     
-      // Convertir parte decimal a binario
+  
       let decimalPart = num - integerPart;
       while (decimalPart !== 0 && mantissa.length < 23) {
           decimalPart *= 2;
@@ -38,7 +37,7 @@ export default function Home() {
           }
       }
     
-      // Normalizar el número
+
       if (binaryInteger !== "0") {
           exponent = binaryInteger.length - 1;
           mantissa = binaryInteger.slice(1) + mantissa;
@@ -48,14 +47,13 @@ export default function Home() {
           mantissa = mantissa.slice(indexOfOne + 1);
       }
     
-      // Ajustar el exponente y el sesgo
+
       exponent += 127;
       exponent = exponent.toString(2).padStart(8, "0");
     
-      // Ajustar la mantisa a 23 bits
+
       mantissa = mantissa.padEnd(23, "0");
-    
-      // Construir el número IEEE 754
+ 
       const ieee754 = sign.toString() + exponent + mantissa;
     
       return ieee754;
