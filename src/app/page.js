@@ -6,8 +6,17 @@ export default function Home() {
   const [decimal, setDecimal] = useState(0);
   const [ieee754, setIEEE754] = useState("");
 
+  const [decimal2, setDecimal2] = useState(0);
+  const [ieee7542, setIEEE7542] = useState("");
+
   const handleInputChange = (e) => {
-      setDecimal(e.target.value);
+    switch (e.target.id){
+        case "puntoflotante":
+            setIEEE7542(e.target.value);
+            break;
+        case "decimal":
+            setDecimal(e.target.value);
+    }
   };
 
   const convertToIEEE754 = () => {
@@ -58,6 +67,24 @@ export default function Home() {
       return ieee754;
   };
 
+    function convertToDecimal() {
+        let binaryString = ieee7542;
+        const sign = parseInt(binaryString.charAt(0), 2);
+        const exponent = binaryString.substr(1, 8);
+        const fraction = binaryString.substr(9);
+
+        const constanteNashe = 127;
+
+        let decimalFraction = 0;
+        for (let i = 0; i < fraction.length; i++) {
+            decimalFraction += parseInt(fraction[i]) * Math.pow(2, -(i + 1));
+        }
+        decimalFraction += 1;
+
+        const decimalExponent = parseInt(exponent, 2) - constanteNashe;
+        const decimalValue = Math.pow(-1, sign) * decimalFraction * Math.pow(2, decimalExponent);
+        setDecimal2(decimalValue);
+    }
 
 
   return (
@@ -69,6 +96,7 @@ export default function Home() {
             <input
                 type="number"
                 step="any"
+                id="decimal"
                 value={decimal}
                 onChange={handleInputChange}
                 className="border border-gray-300 px-3 py-2 w-full rounded-md focus:outline-none focus:ring focus:border-blue-300 " 
@@ -89,8 +117,31 @@ export default function Home() {
         </div>
 
         </div>
-        <div className="child w-96 h-96 bg-green-50 rounded-lg m-5">
-          hola
+
+        <div className="child w-96 h-96 bg-green-50 rounded-lg m- text-center">
+        <div className="max-w-md mx-auto mt-10">
+        <input
+                type="number"
+                step="any"
+                id="puntoflotante"
+                value={ieee7542}
+                onChange={handleInputChange}
+                className="border border-gray-300 px-3 py-2 w-full rounded-md focus:outline-none focus:ring focus:border-blue-300 " 
+                placeholder="Ingrese un número IEEE 754"
+            />
+            <button
+                onClick={convertToDecimal}
+                className="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+            >
+                Convertir
+            </button>
+            {decimal2 && (
+                <div className="mt-4">
+                    <p className="text-gray-700">El número en decimal es:</p>
+                    <p className="mt-1 font-bold">{decimal2}</p>
+                </div>
+            )}
+        </div>
         </div>
       </div>
     </>
