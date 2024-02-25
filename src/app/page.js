@@ -16,7 +16,6 @@ export default function Home() {
   };
 
   const decimalToIEEE754 = (num) => {
-      num = num.toString(2);
       const sign = num < 0 ? 1 : 0;
       num = Math.abs(num);
       let exponent = 0;
@@ -72,7 +71,7 @@ export default function Home() {
                 step="any"
                 value={decimal}
                 onChange={handleInputChange}
-                className="border border-gray-300 px-3 py-2 w-full rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                className="border border-gray-300 px-3 py-2 w-full rounded-md focus:outline-none focus:ring focus:border-blue-300 " 
                 placeholder="Ingrese un número decimal"
             />
             <button
